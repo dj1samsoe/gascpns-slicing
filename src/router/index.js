@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import store from "@/store";
+// import store from "@/store";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -145,28 +145,28 @@ const router = createRouter({
   ],
 });
 
-router.beforeEach((to, from, next) => {
-  document.title = to.meta.title || "Your Default Title";
+// router.beforeEach((to, from, next) => {
+//   document.title = to.meta.title || "Your Default Title";
 
-  if (to.meta.requiresAuth) {
-    if (store.getters["auth/isLoggedIn"]) {
-      const userRole = store.getters["auth/userRole"];
+//   if (to.meta.requiresAuth) {
+//     if (store.getters["auth/isLoggedIn"]) {
+//       const userRole = store.getters["auth/userRole"];
 
-      // Check if the route requires a specific role
-      if (to.meta.requiresAdmin && userRole === "admin") {
-        next();
-      } else if (to.meta.requiresMember && userRole === "member") {
-        next();
-      } else {
-        // Redirect to the appropriate dashboard based on user role
-        next(userRole === "admin" ? "/admin/dashboard" : "/member/dashboard");
-      }
-    } else {
-      next("/login");
-    }
-  } else {
-    next();
-  }
-});
+//       // Check if the route requires a specific role
+//       if (to.meta.requiresAdmin && userRole === "admin") {
+//         next();
+//       } else if (to.meta.requiresMember && userRole === "member") {
+//         next();
+//       } else {
+//         // Redirect to the appropriate dashboard based on user role
+//         next(userRole === "admin" ? "/admin/dashboard" : "/member/dashboard");
+//       }
+//     } else {
+//       next("/login");
+//     }
+//   } else {
+//     next();
+//   }
+// });
 
 export default router;
