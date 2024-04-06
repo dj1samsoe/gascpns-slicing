@@ -15,7 +15,6 @@
     "axios": "^1.6.7",
     "chart.js": "^4.4.2",
     "date-fns": "^3.3.1",
-    "element-ui": "^2.15.14",
     "highcharts": "^11.4.0",
     "v-calendar": "^3.1.2",
     "vue": "^3.4.15",
